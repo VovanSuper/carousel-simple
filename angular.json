@@ -2,38 +2,82 @@
   "version": 1,
   "projects": {
     "carousel-simple": {
+      "projectType": "library",
+      "root": "libs/carousel-simple",
+      "sourceRoot": "libs/carousel-simple/src",
+      "prefix": "ngxd",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/carousel-simple/tsconfig.lib.json",
+            "project": "libs/carousel-simple/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/carousel-simple/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/carousel-simple/tsconfig.lib.json",
+              "libs/carousel-simple/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/carousel-simple/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/carousel-simple/jest.config.js",
+            "tsConfig": "libs/carousel-simple/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/carousel-simple/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "carousel-sample": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/carousel-simple",
-      "sourceRoot": "apps/carousel-simple/src",
+      "root": "apps/carousel-sample",
+      "sourceRoot": "apps/carousel-sample/src",
       "prefix": "ngx-simple",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/carousel-simple",
-            "index": "apps/carousel-simple/src/index.html",
-            "main": "apps/carousel-simple/src/main.ts",
-            "polyfills": "apps/carousel-simple/src/polyfills.ts",
-            "tsConfig": "apps/carousel-simple/tsconfig.app.json",
+            "outputPath": "dist/apps/carousel-sample",
+            "index": "apps/carousel-sample/src/index.html",
+            "main": "apps/carousel-sample/src/main.ts",
+            "polyfills": "apps/carousel-sample/src/polyfills.ts",
+            "tsConfig": "apps/carousel-sample/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/carousel-simple/src/favicon.ico",
-              "apps/carousel-simple/src/assets"
+              "apps/carousel-sample/src/favicon.ico",
+              "apps/carousel-sample/src/assets"
             ],
-            "styles": ["apps/carousel-simple/src/styles.scss"],
+            "styles": ["apps/carousel-sample/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/carousel-simple/src/environments/environment.ts",
-                  "with": "apps/carousel-simple/src/environments/environment.prod.ts"
+                  "replace": "apps/carousel-sample/src/environments/environment.ts",
+                  "with": "apps/carousel-sample/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -62,64 +106,64 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "carousel-simple:build"
+            "browserTarget": "carousel-sample:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "carousel-simple:build:production"
+              "browserTarget": "carousel-sample:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "carousel-simple:build"
+            "browserTarget": "carousel-sample:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/carousel-simple/tsconfig.app.json",
-              "apps/carousel-simple/tsconfig.spec.json"
+              "apps/carousel-sample/tsconfig.app.json",
+              "apps/carousel-sample/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/carousel-simple/**/*"]
+            "exclude": ["**/node_modules/**", "!apps/carousel-sample/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/carousel-simple/jest.config.js",
-            "tsConfig": "apps/carousel-simple/tsconfig.spec.json",
+            "jestConfig": "apps/carousel-sample/jest.config.js",
+            "tsConfig": "apps/carousel-sample/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "apps/carousel-simple/src/test-setup.ts"
+            "setupFile": "apps/carousel-sample/src/test-setup.ts"
           }
         }
       }
     },
-    "carousel-simple-e2e": {
-      "root": "apps/carousel-simple-e2e",
-      "sourceRoot": "apps/carousel-simple-e2e/src",
+    "carousel-sample-e2e": {
+      "root": "apps/carousel-sample-e2e",
+      "sourceRoot": "apps/carousel-sample-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/carousel-simple-e2e/cypress.json",
-            "tsConfig": "apps/carousel-simple-e2e/tsconfig.e2e.json",
-            "devServerTarget": "carousel-simple:serve"
+            "cypressConfig": "apps/carousel-sample-e2e/cypress.json",
+            "tsConfig": "apps/carousel-sample-e2e/tsconfig.e2e.json",
+            "devServerTarget": "carousel-sample:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "carousel-simple:serve:production"
+              "devServerTarget": "carousel-sample:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/carousel-simple-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/carousel-simple-e2e/**/*"]
+            "tsConfig": ["apps/carousel-sample-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/carousel-sample-e2e/**/*"]
           }
         }
       }

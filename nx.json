@@ -22,9 +22,12 @@
     "carousel-simple": {
       "tags": []
     },
-    "carousel-simple-e2e": {
+    "carousel-sample": {
+      "tags": []
+    },
+    "carousel-sample-e2e": {
       "tags": [],
-      "implicitDependencies": ["carousel-simple"]
+      "implicitDependencies": ["carousel-sample"]
     }
   }
 }

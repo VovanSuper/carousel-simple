@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('carousel-simple', () => {
+describe('carousel-sample', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('carousel-simple', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to carousel-simple!');
+    getGreeting().contains('Welcome to carousel-sample!');
   });
 });

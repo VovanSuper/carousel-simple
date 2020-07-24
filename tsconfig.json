@@ -1,21 +1,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
+    "module": "es2020",
+    "moduleResolution": "node",
     "target": "es2015",
-    "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {}
-  },
-  "exclude": ["node_modules", "tmp"]
+    "lib": ["dom", "ES2020"],
+    "paths": {
+      "@ngx-simple/carousel-simple": ["libs/carousel-simple/src/index.ts"]
+    }
+  }
 }

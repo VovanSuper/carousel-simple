@@ -1,0 +1,31 @@
+<style>
+  .carousel-viewport {
+    display: block;
+    max-width:  100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-container {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-height: 100%;
+    box-sizing: border-box;
+  }
+</style>
+
+<div class="carousel-viewport">
+  <div class="carousel-container" #slider>
+    <ng-container *ngIf="slides && !!slides?.length; else noImages">
+      <ng-container *ngFor="let cmp of slideComponents">
+        <ng-container *ngComponentOutlet="SlideCmp; injector: cmp.injector"></ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+<button (click)="slideTo(slider)">Animate</button>
+
+<ng-template #noImages>Nothing has been Supplied! Provide slides to display!</ng-template>
