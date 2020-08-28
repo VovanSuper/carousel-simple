@@ -17,7 +17,7 @@ export class CarouselComponent implements OnInit {
   slideComponents: Array<{ injector: Injector; }> = [];
   slides: ISlide[] = [];
   get SlideCmp() {
-    return ImageSlideComponent;
+    return ImageSlideComponent //   || TextSlideCmp ?   -- something like that;
   }
 
   constructor(public injector: Injector, public sanitizer: DomSanitizer) { }

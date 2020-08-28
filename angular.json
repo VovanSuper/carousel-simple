@@ -33,9 +33,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/carousel-simple/jest.config.js",
-            "tsConfig": "libs/carousel-simple/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/carousel-simple/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       },
@@ -134,9 +132,7 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/carousel-sample/jest.config.js",
-            "tsConfig": "apps/carousel-sample/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/carousel-sample/src/test-setup.ts"
+            "passWithNoTests": true
           }
         }
       }
