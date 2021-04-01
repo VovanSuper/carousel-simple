@@ -1,31 +1,47 @@
 <style>
-  .carousel-viewport {
+  .ngxd-carousel-viewport {
     display: block;
-    max-width:  100%;
+    max-width: 100%;
     max-height: 100%;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
-  .carousel-container {
+  .ngxd-carousel-container {
     position: relative;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    max-height: 100%;
+    /* max-height: 100%; */
     box-sizing: border-box;
+    /* justify-content: center; */
+  }
+
+  .ngxd-carousel--btn-action {
+    position: absolute;
+    top: 50%;
+  }
+
+  .ngxd-carousel--btn-left {
+    left: 3rem;
+  }
+
+  .ngxd-carousel--btn-right {
+    right: 3rem;
   }
 </style>
 
-<div class="carousel-viewport">
-  <div class="carousel-container" #slider>
-    <ng-container *ngIf="slides && !!slides?.length; else noImages">
+<div class="ngxd-carousel-viewport" #cvp>
+  <div class="ngxd-carousel-container" #slider>
+    <ng-container *ngIf="!!slides?.length; else noImages">
       <ng-container *ngFor="let cmp of slideComponents">
         <ng-container *ngComponentOutlet="SlideCmp; injector: cmp.injector"></ng-container>
       </ng-container>
     </ng-container>
   </div>
+  <button class="ngxd-carousel--btn-action ngxd-carousel--btn-left" (click)="slideTo('left')">Left</button>
+  <button class="ngxd-carousel--btn-action ngxd-carousel--btn-right" (click)="slideTo('right')">Right</button>
 </div>
 
-<button (click)="slideTo(slider)">Animate</button>
 
 <ng-template #noImages>Nothing has been Supplied! Provide slides to display!</ng-template>

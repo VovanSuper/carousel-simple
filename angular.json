@@ -52,7 +52,7 @@
       },
       "root": "apps/carousel-sample",
       "sourceRoot": "apps/carousel-sample/src",
-      "prefix": "ngx-simple",
+      "prefix": "ngxd-sample",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

@@ -1,8 +1,13 @@
-<ng-container *ngTemplateOutlet="slideImgTpl; context: { src: imgSrc, heading: headingTxt}" ></ng-container>
+<!-- <ng-container *ngTemplateOutlet="slideImgTpl; context: { src: imgSrc, heading: headingTxt}" ></ng-container>
 
 <ng-template #slideImgTpl let-src="src" let-heading="heading">
-  <div class="item-host">
+  <div #itemHost class="item-host">
     <img class="slide-img" [src]="src" alt="{{heading}}" />
     <div class="slide-title"> {{heading}}</div>
   </div>
-</ng-template>
+</ng-template> -->
+
+<!-- <div #itemHost class="item-host"> -->
+  <img class="slide-img" [src]="imgSrc" alt="{{headingTxt}}" />
+  <div class="slide-title"> {{headingTxt}}</div>
+<!-- </div> -->

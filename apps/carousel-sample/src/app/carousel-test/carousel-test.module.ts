@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CarouselTestComponent } from './carousel-test.component';
 import { CarouselSimpleModule } from '@ngx-simple/carousel-simple';
+import { CarouselTestComponent } from './carousel-test.component';
 
 const testRoutes: Routes = [
   { path: '', component: CarouselTestComponent }
@@ -11,7 +10,6 @@ const testRoutes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
     CarouselSimpleModule,
     RouterModule.forChild(testRoutes)
   ],
