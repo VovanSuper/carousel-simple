@@ -14,5 +14,11 @@
     "paths": {
       "@ngx-simple/carousel-simple": ["libs/carousel-simple/src/index.ts"]
     }
+  },
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "strictTemplates": true,
+    "enableResourceInlining": true
   }
 }

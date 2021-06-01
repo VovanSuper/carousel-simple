@@ -1,36 +1,25 @@
 {
-  "npmScope": "ngx-simple",
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tslint.json": "*",
     "nx.json": "*",
     "tsconfig.base.json": "*"
   },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "ngx-simple",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "carousel-simple": {
-      "tags": []
-    },
-    "carousel-sample": {
-      "tags": []
-    },
+    "carousel-simple": { "tags": [] },
+    "carousel-sample": { "tags": [] },
     "carousel-sample-e2e": {
       "tags": [],
       "implicitDependencies": ["carousel-sample"]
     }
-  },
-  "affected": {
-    "defaultBase": "master"
   }
 }

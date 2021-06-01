@@ -1,25 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { render, screen, fireEvent } from '@testing-library/angular';
 import { ImageSlideComponent } from './image-slide.component';
 
-describe('ImageSlideComponent', () => {
-  let component: ImageSlideComponent;
-  let fixture: ComponentFixture<ImageSlideComponent>;
+test('should render ImageSlide component properly', async () => {
+  await render(ImageSlideComponent);
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ImageSlideComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ImageSlideComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  
 });

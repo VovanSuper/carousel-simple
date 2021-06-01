@@ -1,5 +1,5 @@
-import { Component, OnInit, Type, Injector, InjectionToken, ElementRef, AfterViewInit, ViewChild, Renderer2, Inject } from '@angular/core';
-import { AnimationBuilder, AnimationFactory, animate, keyframes, style, AnimationPlayer, useAnimation } from '@angular/animations';
+import { Component, OnInit, Injector, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { AnimationBuilder, AnimationFactory, animate, style, AnimationPlayer, AnimationOptions } from '@angular/animations';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ImageSlideComponent } from '../image-slide/image-slide.component';
 import { ISlideData, slideDataToken } from '../settings/slide.provider-data';
@@ -17,7 +17,8 @@ export class CarouselComponent implements OnInit {
   slideComponents: Array<{ injector: Injector; }> = [];
   slides: ISlideData[] = [];
   currIndex = 0;
-  get SlideCmp() {
+  currentDelta = 0;
+  get slideCmp() {
     return ImageSlideComponent; //   || TextSlideCmp ?   -- something like that;
   }
   containerW = 0;
@@ -54,74 +55,92 @@ export class CarouselComponent implements OnInit {
 
     //** Window Resize Observer */
     window.addEventListener('resize', e => {
-      const { innerHeight, innerWidth } = e.target as any;
+      const { innerHeight, innerWidth } = <EventTarget & { innerHeight: number | string, innerWidth: number | string; }>e.target;
       l('Window size : ', { innerHeight, innerWidth });
-      l('this.viewPortContainer.nativeElement : ', { h: getComputedStyle(this.viewPortContainer.nativeElement).height, w: getComputedStyle(this.viewPortContainer.nativeElement).width });
+      l('this.viewPortContainer.nativeElement : ', {
+        h: getComputedStyle(this.viewPortContainer.nativeElement).height,
+        w: getComputedStyle(this.viewPortContainer.nativeElement).width
+      });
 
     });
     // -- Window Resize end -- 
-    function handleResize(e) {
-
+    function handleResize(e: Event) {
+      l(e);
     }
 
   }
 
   slideTo(dir?: 'left' | 'right', amount = this.getContainerW()) {
     // amount = next ?  || amount;
-    this.currIndex = dir === 'left' ? this.currIndex - 1 : this.currIndex + 1;
     l('Current INDEX: ', this.currIndex);
-    const animIndex = this.currIndex + 0;
-    const transitionAmount = animIndex * amount;
-    const transitionValue = dir === 'left' ? transitionAmount + 'px' : '-' + transitionAmount + 'px';
-    l('Transition AMOUNT ON STEP : ', transitionAmount);
+    if ((this.currIndex >= this.slides.length - 1 && dir === 'left') || (this.currIndex <= 0 && dir === 'right')) {
+      console.warn('Cannot animate ...');
+      return;
+    }
+    this.currIndex = (dir === 'left') ? this.currIndex + 1 : this.currIndex - 1;
+    // const transitionAmount = this.currIndex * amount ;
+    this.currentDelta = (dir === 'left') ? this.currentDelta - amount : this.currentDelta + amount;
 
-    // const keyFrames: Keyframe[] = [
-    //   { transform: transitionValue }
-    // ];
+    const persistentTransitionValue = this.currentDelta + 'px';
+    l('Transition AMOUNT ON STEP : ', persistentTransitionValue);
 
 
-    const slideAnimation = animate('2s ease-in-out', style({ transform: `{{transformParams}}` }));
+
+
+    // this.renderer.setStyle(this.carouselContainer.nativeElement, 'transform', `translateX(${persistentTransitionValue})`);
+
+    // const slideAnimation = animate('2s ease-in-out', style({ transform: `{{transformParams}}` }));
 
     // const animFactory: AnimationFactory = this.animationBuilder.build([
     //   animate('2s', keyframes([
     //     style({ transform: `{{transformParams}}` })
     //   ]))
     // ]);
-    const animFactory: AnimationFactory = this.animationBuilder.build(slideAnimation);
+    // const animFactory: AnimationFactory = this.animationBuilder.build(slideAnimation);
 
     // translateX(${(dir === 'left') ? amount : -amount || -716}px)
 
-    const createParams = () => {
-      return `translateX(${transitionValue})`;
-    };
+    // const createParams = () => `translateX(${transitionValue})`;
 
-    const player: AnimationPlayer = animFactory.create(this.carouselContainer.nativeElement, {
-      params: {
-        'transformParams': createParams()
-      }
-    });
+    // const opts: AnimationOptions = {
+    //   params: {
+    //     transformParams: createParams()
+    //   }
+    // };
+    // const player: AnimationPlayer = animFactory.create(this.carouselContainer.nativeElement, opts);
 
-    player.play();
-    player.onStart(() => l('starting animation ', player));
-    player.onDone(() => {
-      // this.renderer.setStyle(this.carouselContainer.nativeElement, 'transform', 'none');
-      // this.renderer.setStyle(this.carouselContainer.nativeElement, 'offset', 'none');
-      this.renderer.setStyle(this.carouselContainer.nativeElement, 'transform', `translate(${transitionValue})`);
-      player.destroy();
-    });
-
-    player.play();
-    // const anim: Animation = this.carouselContainer.nativeElement.animate([...keyFrames], { duration: 1000, composite: 'accumulate', fill: 'forwards' });
-    // anim.addEventListener('finish', e => {
-    //   const el: HTMLElement = e.target as HTMLElement;
-    //   // currEl.style.left = '-450px';
-    //   console.log(anim['commitStyles']);
-    //   (<any>anim).commitStyles();
+    // player.play();
+    // player.onStart(() => {
+    //   // this.renderer.removeStyle(this.carouselContainer.nativeElement, 'transform');
     // });
-    // anim.finished.then(_anim => _anim['persist'] && (<any>_anim).persist());
+    // player.onDone(() => {
+    //   // this.renderer.setStyle(this.carouselContainer.nativeElement, 'transform', 'none');
+    //   // this.renderer.setStyle(this.carouselContainer.nativeElement, 'offset', 'none');
+    //   this.renderer.setStyle(this.carouselContainer.nativeElement, 'transform', `translate(${transitionValue})`);
+    //   player.destroy();
+    // });
+
+    // player.play();
+
+    const keyFrames: Keyframe[] = [{ transform: `translateX(${(dir === 'left' ? - amount : amount)}px)` }];
+    const keyFramesAnimOpts: KeyframeAnimationOptions = {
+      duration: 1500,
+      fill: 'forwards',
+      easing: 'ease-in-out',
+      composite: 'accumulate',
+    };
+    const anim: Animation = this.carouselContainer.nativeElement.animate(keyFrames, keyFramesAnimOpts);
+    anim.finished.then((_anim: Animation & { persist?: () => void; commitStyles?: () => void; }) => {
+      if (_anim['persist']) { _anim.persist(); }
+      else if (_anim['commitStyles']) { _anim.commitStyles(); }
+      // else
+        // this.renderer.setStyle(this.carouselContainer.nativeElement, 'transform', `translateX(${persistentTransitionValue})`);
+    });
+
   }
 
-  private getContainerW = () => (this.viewPortContainer.nativeElement.getBoundingClientRect().width);
+  private getContainerW = () => this.viewPortContainer.nativeElement.getBoundingClientRect().width;
+  // private getContainerW = () => this.viewPortContainer.nativeElement.offsetWidth;
 
   // slideTo(itemIndex: number) {
   // Basically, the distance between two positions of the slider-container (the current and next);
@@ -129,8 +148,8 @@ export class CarouselComponent implements OnInit {
   // distance in px could be found by multiplication of quantity of slides to animated between (current slide - next slide) and a slide width
   // }
 
-  private getElIndex(element: HTMLDListElement) {
-    // return this.slideComponents.indexOf(element);
-  }
+  // private getElIndex(element: HTMLDListElement) {
+  // return this.slideComponents.indexOf(element);
+  // }
 
 }

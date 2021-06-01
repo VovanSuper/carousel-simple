@@ -35,7 +35,8 @@ export class ImageSlideComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
+    console.log(this.imgSrc);
+    console.log(this.slideW);
 
   }
 

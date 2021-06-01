@@ -13,6 +13,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     /* max-height: 100%; */
+    transition: 1.5s ease-in-out .1s;
     box-sizing: border-box;
     /* justify-content: center; */
   }
@@ -35,7 +36,7 @@
   <div class="ngxd-carousel-container" #slider>
     <ng-container *ngIf="!!slides?.length; else noImages">
       <ng-container *ngFor="let cmp of slideComponents">
-        <ng-container *ngComponentOutlet="SlideCmp; injector: cmp.injector"></ng-container>
+        <ng-container *ngComponentOutlet="slideCmp; injector: cmp.injector"></ng-container>
       </ng-container>
     </ng-container>
   </div>

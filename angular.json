@@ -1,5 +1,18 @@
 {
   "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "carousel-simple",
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
   "projects": {
     "carousel-simple": {
       "projectType": "library",
@@ -11,7 +24,8 @@
           "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/carousel-simple/tsconfig.lib.json",
-            "project": "libs/carousel-simple/ng-package.json"
+            "project": "libs/carousel-simple/ng-package.json",
+            "buildableProjectDepsInPackageJsonType": "dependencies"
           },
           "configurations": {
             "production": {
@@ -20,13 +34,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/carousel-simple/tsconfig.lib.json",
-              "libs/carousel-simple/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/carousel-simple/**/*"]
+            "lintFilePatterns": [
+              "libs/carousel-simple/src/**/*.ts",
+              "libs/carousel-simple/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -34,7 +47,8 @@
           "options": {
             "jestConfig": "libs/carousel-simple/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/carousel-simple"]
         }
       },
       "schematics": {
@@ -81,7 +95,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -99,7 +112,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -119,13 +133,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/carousel-sample/tsconfig.app.json",
-              "apps/carousel-sample/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/carousel-sample/**/*"]
+            "lintFilePatterns": [
+              "apps/carousel-sample/src/**/*.ts",
+              "apps/carousel-sample/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -133,7 +146,8 @@
           "options": {
             "jestConfig": "apps/carousel-sample/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/carousel-sample"]
         }
       }
     },
@@ -156,26 +170,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/carousel-sample-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/carousel-sample-e2e/**/*"]
+            "lintFilePatterns": ["apps/carousel-sample-e2e/**/*.{js,ts}"]
           }
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "schematics": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    }
-  },
-  "defaultProject": "carousel-simple"
+  }
 }
