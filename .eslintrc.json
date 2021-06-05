@@ -22,7 +22,13 @@
             ]
           }
         ],
-        "max-len": ["warn", { "code": 155, "ignoreUrls": true }]
+        "max-len": [
+          "warn",
+          {
+            "code": 155,
+            "ignoreUrls": true
+          }
+        ]
       }
     },
     {
@@ -125,7 +131,8 @@
       "files": ["*.html"],
       "rules": {
         "@angular-eslint/template/banana-in-box": "warn",
-        "@angular-eslint/template/no-negated-async": "error"
+        "@angular-eslint/template/no-negated-async": "error",
+        "@angular-eslint/template/eqeqeq": "error"
       },
       "plugins": ["@angular-eslint/eslint-plugin-template"]
     }
