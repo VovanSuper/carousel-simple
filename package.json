@@ -15,11 +15,7 @@
     "carousel-simple",
     "simple carousel",
     "Angular",
-    "Angular10",
-    "Angular11",
-    "Angular12",
     "Ionic",
-    "Ionic5",
     "typescript",
     "javascript"
   ],
@@ -34,19 +30,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ngx-dummy/accordion-simple.git"
+    "url": "https://github.com/ngx-dummy/carousel-simple.git"
   },
   "bugs": {
     "email": "ovsyukov@yandex.com",
-    "url": "https://github.com/ngx-dummy/accordion-simple/issues"
+    "url": "https://github.com/ngx-dummy/carousel-simple/issues"
   },
-  "homepage": "https://github.com/ngx-dummy/accordion-simple#README",
+  "homepage": "https://github.com/ngx-dummy/carousel-simple#README",
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start": "nx serve carousel-sample --open --port=8084",
     "build": "ng build",
+    "compodoc": "npx compodoc -p tsconfig.base.json libs/carousel-simple/src",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",

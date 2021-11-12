@@ -1,0 +1,1113 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>carousel-simple documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">carousel-simple documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>CarouselComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>libs/carousel-simple/src/lib/carousel/carousel.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ngxd-carousel</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./carousel.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#carouselContainer">carouselContainer</a>
+                            </li>
+                            <li>
+                                <a href="#containerW">containerW</a>
+                            </li>
+                            <li>
+                                <a href="#currentDelta">currentDelta</a>
+                            </li>
+                            <li>
+                                <a href="#currIndex">currIndex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getContainerW">getContainerW</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#injector">injector</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#renderer">renderer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sanitizer">sanitizer</a>
+                            </li>
+                            <li>
+                                <a href="#slideComponents">slideComponents</a>
+                            </li>
+                            <li>
+                                <a href="#slides">slides</a>
+                            </li>
+                            <li>
+                                <a href="#viewPortContainer">viewPortContainer</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#slideTo">slideTo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#slideCmp">slideCmp</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, sanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, animationBuilder: <a href="../s/l.html">AnimationBuilder</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/Injector" target="_blank" >Injector</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sanitizer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>animationBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../miscellaneous/variables.html#l" target="_self" >AnimationBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="slideTo"></a>
+                    <span class="name">
+                        <b>
+                            slideTo
+                        </b>
+                        <a href="#slideTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>slideTo(dir?: <a href="../s/l.html">"left" | "right"</a>, amount)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dir</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#l" target="_self" >&quot;left&quot; | &quot;right&quot;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>amount</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>this.getContainerW()</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="carouselContainer"></a>
+                        <span class="name">
+                            <b>
+                            carouselContainer</b>
+                            <a href="#carouselContainer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/variables.html#l" target="_self" >ElementRef&lt;HTMLElement&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;slider&#x27;, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="containerW"></a>
+                        <span class="name">
+                            <b>
+                            containerW</b>
+                            <a href="#containerW"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentDelta"></a>
+                        <span class="name">
+                            <b>
+                            currentDelta</b>
+                            <a href="#currentDelta"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currIndex"></a>
+                        <span class="name">
+                            <b>
+                            currIndex</b>
+                            <a href="#currIndex"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getContainerW"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getContainerW</b>
+                            <a href="#getContainerW"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:142</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="injector"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            injector</b>
+                            <a href="#injector"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/Injector" target="_blank" >Injector</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="renderer"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            renderer</b>
+                            <a href="#renderer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sanitizer"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            sanitizer</b>
+                            <a href="#sanitizer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slideComponents"></a>
+                        <span class="name">
+                            <b>
+                            slideComponents</b>
+                            <a href="#slideComponents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/variables.html#l" target="_self" >Array&lt;literal type&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slides"></a>
+                        <span class="name">
+                            <b>
+                            slides</b>
+                            <a href="#slides"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/ISlideData.html" target="_self" >ISlideData[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewPortContainer"></a>
+                        <span class="name">
+                            <b>
+                            viewPortContainer</b>
+                            <a href="#viewPortContainer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/variables.html#l" target="_self" >ElementRef&lt;HTMLElement&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;cvp&#x27;, {static: true})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slideCmp"></a>
+                        <span class="name"><b>slideCmp</b><a href="#slideCmp"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>slideCmp()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">libs/carousel-simple/src/lib/carousel/carousel.component.ts:21</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Injector, ElementRef, ViewChild, Renderer2 } from &#x27;@angular/core&#x27;;
+import { AnimationBuilder, AnimationFactory, animate, style, AnimationPlayer, AnimationOptions } from &#x27;@angular/animations&#x27;;
+import { DomSanitizer } from &#x27;@angular/platform-browser&#x27;;
+import { ImageSlideComponent } from &#x27;../image-slide/image-slide.component&#x27;;
+import { ISlideData, slideDataToken } from &#x27;../settings/slide.provider-data&#x27;;
+
+const l &#x3D; console.log;
+
+@Component({
+  selector: &#x27;ngxd-carousel&#x27;,
+  templateUrl: &#x27;./carousel.component.html&#x27;
+})
+export class CarouselComponent implements OnInit {
+  @ViewChild(&#x27;cvp&#x27;, { static: true }) viewPortContainer: ElementRef&lt;HTMLElement&gt;;
+  @ViewChild(&#x27;slider&#x27;, { static: true }) carouselContainer: ElementRef&lt;HTMLElement&gt;;
+  // @Input() images: string[] &#x3D; [];
+  slideComponents: Array&lt;{ injector: Injector; }&gt; &#x3D; [];
+  slides: ISlideData[] &#x3D; [];
+  currIndex &#x3D; 0;
+  currentDelta &#x3D; 0;
+  get slideCmp() {
+    return ImageSlideComponent; //   || TextSlideCmp ?   -- something like that;
+  }
+  containerW &#x3D; 0;
+
+  constructor(
+    public injector: Injector,
+    public sanitizer: DomSanitizer,
+    public renderer: Renderer2,
+    private animationBuilder: AnimationBuilder,
+  ) { }
+
+  ngOnInit() {
+    // ngAfterViewInit() {
+    // this.images &#x3D; (Array.from(new Array(9))).map((_, i) &#x3D;&gt; require(&#x60;../assets/${i + 1}.jpeg&#x60;));
+    this.containerW &#x3D; this.getContainerW();
+    l(this.containerW);
+    // this.renderer.setStyle(this.carouselContainer.nativeElement, &#x27;width&#x27;, this.containerW * 9);
+    this.slides &#x3D; Array.from(new Array(9)).map((_, i) &#x3D;&gt; ({
+      imgSrc: &#x60;assets/${i + 1}.jpeg&#x60;,
+      title: &#x60;Title ${i + 1}&#x60;,
+      slideW: this.containerW,
+      extras: { cb: function () { handleResize.bind(this); } }
+    }));
+
+
+    this.slides.forEach(({ imgSrc, title, slideW, extras }, i) &#x3D;&gt; {
+      const slideChildInjector &#x3D; Injector.create({
+        providers: [{ provide: slideDataToken, useValue: { imgSrc, title, slideW, extras } }],
+        name: &#x60;imgSlideInjector${i + 1}&#x60;,
+        parent: this.injector
+      });
+      this.slideComponents.push({ injector: slideChildInjector });
+    });
+
+    //** Window Resize Observer */
+    window.addEventListener(&#x27;resize&#x27;, e &#x3D;&gt; {
+      const { innerHeight, innerWidth } &#x3D; &lt;EventTarget &amp; { innerHeight: number | string, innerWidth: number | string; }&gt;e.target;
+      l(&#x27;Window size : &#x27;, { innerHeight, innerWidth });
+      l(&#x27;this.viewPortContainer.nativeElement : &#x27;, {
+        h: getComputedStyle(this.viewPortContainer.nativeElement).height,
+        w: getComputedStyle(this.viewPortContainer.nativeElement).width
+      });
+
+    });
+    // -- Window Resize end -- 
+    function handleResize(e: Event) {
+      l(e);
+    }
+
+  }
+
+  slideTo(dir?: &#x27;left&#x27; | &#x27;right&#x27;, amount &#x3D; this.getContainerW()) {
+    // amount &#x3D; next ?  || amount;
+    l(&#x27;Current INDEX: &#x27;, this.currIndex);
+    if ((this.currIndex &gt;&#x3D; this.slides.length - 1 &amp;&amp; dir &#x3D;&#x3D;&#x3D; &#x27;left&#x27;) || (this.currIndex &lt;&#x3D; 0 &amp;&amp; dir &#x3D;&#x3D;&#x3D; &#x27;right&#x27;)) {
+      console.warn(&#x27;Cannot animate ...&#x27;);
+      return;
+    }
+    this.currIndex &#x3D; (dir &#x3D;&#x3D;&#x3D; &#x27;left&#x27;) ? this.currIndex + 1 : this.currIndex - 1;
+    // const transitionAmount &#x3D; this.currIndex * amount ;
+    this.currentDelta &#x3D; (dir &#x3D;&#x3D;&#x3D; &#x27;left&#x27;) ? this.currentDelta - amount : this.currentDelta + amount;
+
+    const persistentTransitionValue &#x3D; this.currentDelta + &#x27;px&#x27;;
+    l(&#x27;Transition AMOUNT ON STEP : &#x27;, persistentTransitionValue);
+
+
+
+
+    // this.renderer.setStyle(this.carouselContainer.nativeElement, &#x27;transform&#x27;, &#x60;translateX(${persistentTransitionValue})&#x60;);
+
+    // const slideAnimation &#x3D; animate(&#x27;2s ease-in-out&#x27;, style({ transform: &#x60;{{transformParams}}&#x60; }));
+
+    // const animFactory: AnimationFactory &#x3D; this.animationBuilder.build([
+    //   animate(&#x27;2s&#x27;, keyframes([
+    //     style({ transform: &#x60;{{transformParams}}&#x60; })
+    //   ]))
+    // ]);
+    // const animFactory: AnimationFactory &#x3D; this.animationBuilder.build(slideAnimation);
+
+    // translateX(${(dir &#x3D;&#x3D;&#x3D; &#x27;left&#x27;) ? amount : -amount || -716}px)
+
+    // const createParams &#x3D; () &#x3D;&gt; &#x60;translateX(${transitionValue})&#x60;;
+
+    // const opts: AnimationOptions &#x3D; {
+    //   params: {
+    //     transformParams: createParams()
+    //   }
+    // };
+    // const player: AnimationPlayer &#x3D; animFactory.create(this.carouselContainer.nativeElement, opts);
+
+    // player.play();
+    // player.onStart(() &#x3D;&gt; {
+    //   // this.renderer.removeStyle(this.carouselContainer.nativeElement, &#x27;transform&#x27;);
+    // });
+    // player.onDone(() &#x3D;&gt; {
+    //   // this.renderer.setStyle(this.carouselContainer.nativeElement, &#x27;transform&#x27;, &#x27;none&#x27;);
+    //   // this.renderer.setStyle(this.carouselContainer.nativeElement, &#x27;offset&#x27;, &#x27;none&#x27;);
+    //   this.renderer.setStyle(this.carouselContainer.nativeElement, &#x27;transform&#x27;, &#x60;translate(${transitionValue})&#x60;);
+    //   player.destroy();
+    // });
+
+    // player.play();
+
+    const keyFrames: Keyframe[] &#x3D; [{ transform: &#x60;translateX(${(dir &#x3D;&#x3D;&#x3D; &#x27;left&#x27; ? - amount : amount)}px)&#x60; }];
+    const keyFramesAnimOpts: KeyframeAnimationOptions &#x3D; {
+      duration: 1500,
+      fill: &#x27;forwards&#x27;,
+      easing: &#x27;ease-in-out&#x27;,
+      composite: &#x27;accumulate&#x27;,
+    };
+    const anim: Animation &#x3D; this.carouselContainer.nativeElement.animate(keyFrames, keyFramesAnimOpts);
+    anim.finished.then((_anim: Animation &amp; { persist?: () &#x3D;&gt; void; commitStyles?: () &#x3D;&gt; void; }) &#x3D;&gt; {
+      if (_anim[&#x27;persist&#x27;]) { _anim.persist(); }
+      else if (_anim[&#x27;commitStyles&#x27;]) { _anim.commitStyles(); }
+      // else
+        // this.renderer.setStyle(this.carouselContainer.nativeElement, &#x27;transform&#x27;, &#x60;translateX(${persistentTransitionValue})&#x60;);
+    });
+
+  }
+
+  private getContainerW &#x3D; () &#x3D;&gt; this.viewPortContainer.nativeElement.getBoundingClientRect().width;
+  // private getContainerW &#x3D; () &#x3D;&gt; this.viewPortContainer.nativeElement.offsetWidth;
+
+  // slideTo(itemIndex: number) {
+  // Basically, the distance between two positions of the slider-container (the current and next);
+  // for that: get current index of slide in viewport, get the next slide index (slide to which container to be animated to),
+  // distance in px could be found by multiplication of quantity of slides to animated between (current slide - next slide) and a slide width
+  // }
+
+  // private getElIndex(element: HTMLDListElement) {
+  // return this.slideComponents.indexOf(element);
+  // }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;style&gt;
+  .ngxd-carousel-viewport {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .ngxd-carousel-container {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* max-height: 100%; */
+    transition: 1.5s ease-in-out .1s;
+    box-sizing: border-box;
+    /* justify-content: center; */
+  }
+
+  .ngxd-carousel--btn-action {
+    position: absolute;
+    top: 50%;
+  }
+
+  .ngxd-carousel--btn-left {
+    left: 3rem;
+  }
+
+  .ngxd-carousel--btn-right {
+    right: 3rem;
+  }
+&lt;/style&gt;
+
+&lt;div class&#x3D;&quot;ngxd-carousel-viewport&quot; #cvp&gt;
+  &lt;div class&#x3D;&quot;ngxd-carousel-container&quot; #slider&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!!slides?.length; else noImages&quot;&gt;
+      &lt;ng-container *ngFor&#x3D;&quot;let cmp of slideComponents&quot;&gt;
+        &lt;ng-container *ngComponentOutlet&#x3D;&quot;slideCmp; injector: cmp.injector&quot;&gt;&lt;/ng-container&gt;
+      &lt;/ng-container&gt;
+    &lt;/ng-container&gt;
+  &lt;/div&gt;
+  &lt;button class&#x3D;&quot;ngxd-carousel--btn-action ngxd-carousel--btn-left&quot; (click)&#x3D;&quot;slideTo(&#x27;left&#x27;)&quot;&gt;Left&lt;/button&gt;
+  &lt;button class&#x3D;&quot;ngxd-carousel--btn-action ngxd-carousel--btn-right&quot; (click)&#x3D;&quot;slideTo(&#x27;right&#x27;)&quot;&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;ng-template #noImages&gt;Nothing has been Supplied! Provide slides to display!&lt;/ng-template&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><style>  .ngxd-carousel-viewport {    display: block;    max-width: 100%;    max-height: 100%;    overflow: hidden;    box-sizing: border-box;  }  .ngxd-carousel-container {    position: relative;    display: inline-flex;    flex-direction: row;    flex-wrap: nowrap;    /* max-height: 100%; */    transition: 1.5s ease-in-out .1s;    box-sizing: border-box;    /* justify-content: center; */  }  .ngxd-carousel--btn-action {    position: absolute;    top: 50%;  }  .ngxd-carousel--btn-left {    left: 3rem;  }  .ngxd-carousel--btn-right {    right: 3rem;  }</style><div class="ngxd-carousel-viewport" #cvp>  <div class="ngxd-carousel-container" #slider>    <ng-container *ngIf="!!slides?.length; else noImages">      <ng-container *ngFor="let cmp of slideComponents">        <ng-container *ngComponentOutlet="slideCmp; injector: cmp.injector"></ng-container>      </ng-container>    </ng-container>  </div>  <button class="ngxd-carousel--btn-action ngxd-carousel--btn-left" (click)="slideTo(\'left\')">Left</button>  <button class="ngxd-carousel--btn-action ngxd-carousel--btn-right" (click)="slideTo(\'right\')">Right</button></div><ng-template #noImages>Nothing has been Supplied! Provide slides to display!</ng-template></div>'
+    var COMPONENTS = [{'name': 'CarouselComponent', 'selector': 'ngxd-carousel'},{'name': 'ImageSlideComponent', 'selector': 'ngxd-image-slide'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'CarouselComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CarouselComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

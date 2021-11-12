@@ -44,8 +44,5 @@
   "peerDependencies": {
     "@angular/common": "11.x",
     "@angular/core": "11.x"
-  },
-  "dependencies": {
-    "typescript": "~4.1.4"
   }
 }
